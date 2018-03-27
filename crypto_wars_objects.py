@@ -1,9 +1,10 @@
 import os
+import random
 
 
 ## map and travel
 class Market:
-    def __init__(self, name, high, low, stock, bank='No', location = None):
+    def __init__(self, name, high, low, stock, bank=False, location=None):
         self.name = name
         self.high = high
         self.low = low
@@ -12,13 +13,22 @@ class Market:
         self.location = location
 
     def populate(self):
+        pass
 
 
 class Crypto_Currencies:
-    def __init__(self, name, high, low):
+    def __init__(self, name, price, multi, rand_multi, low):
         self.name = name
-        self.high = high
+        self.price = price
+        self.multi = multi
+        self.rand_multi = rand_multi
         self.low = low
+
+
+    def set_price(self):
+        self.rand_multi = self.multi * random.randint(1, self.multi)
+        self.price = self.low * self.rand_multi
+        return self.price
 
 
 ## inventory
@@ -30,6 +40,7 @@ class Portfolio:
         self.ammount = ammount
 
     def purchase():
+        pass
 
 
 
@@ -37,5 +48,4 @@ class Portfolio:
 ## sales
 
 ## market
-coinbase = Market('Coinbase', 'BTC', 'LTC', False, 1)
-print(coinbase.location)
+
